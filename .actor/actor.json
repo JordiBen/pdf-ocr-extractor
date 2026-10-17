@@ -1,0 +1,63 @@
+{
+  "actorSpecification": 1,
+  "name": "pdf-ocr-extractor",
+  "title": "PDF & Image OCR to Text/Markdown (Hebrew, Arabic)",
+  "description": "Extract text and tables from PDFs and images. Uses the PDF text layer when present and Tesseract OCR for scanned pages. Supports Hebrew and Arabic (RTL) plus 11 more languages. Outputs clean Markdown or plain text. Priced per page.",
+  "version": "1.0",
+  "buildTag": "latest",
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile",
+  "readme": "../README.md",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "views": {
+        "overview": {
+          "title": "Files",
+          "transformation": {
+            "fields": [
+              "url",
+              "pageCount",
+              "ocrPages",
+              "textLayerPages",
+              "tableCount",
+              "content",
+              "error"
+            ]
+          },
+          "display": {
+            "component": "table",
+            "properties": {
+              "url": {
+                "label": "File",
+                "format": "link"
+              },
+              "pageCount": {
+                "label": "Pages",
+                "format": "number"
+              },
+              "ocrPages": {
+                "label": "OCR pages",
+                "format": "number"
+              },
+              "textLayerPages": {
+                "label": "Text-layer pages",
+                "format": "number"
+              },
+              "tableCount": {
+                "label": "Tables",
+                "format": "number"
+              },
+              "content": {
+                "label": "Content"
+              },
+              "error": {
+                "label": "Error"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

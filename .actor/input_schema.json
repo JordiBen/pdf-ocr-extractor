@@ -1,0 +1,124 @@
+{
+  "title": "PDF & Image OCR input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "fileUrls": {
+      "title": "File URLs",
+      "type": "array",
+      "description": "Direct links to PDF or image files (PNG, JPEG, TIFF, GIF, BMP, WebP). Max 50 MB each. Tip: upload files to an Apify key-value store and paste their record URLs.",
+      "editor": "requestListSources",
+      "prefill": [
+        {
+          "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+        }
+      ]
+    },
+    "languages": {
+      "title": "OCR languages",
+      "type": "array",
+      "description": "Languages present in scanned pages. Pick only what you need; more languages = slower OCR.",
+      "editor": "select",
+      "items": {
+        "type": "string",
+        "enum": [
+          "eng",
+          "heb",
+          "ara",
+          "rus",
+          "deu",
+          "fra",
+          "spa",
+          "ita",
+          "por",
+          "nld",
+          "pol",
+          "tur",
+          "ukr"
+        ],
+        "enumTitles": [
+          "English",
+          "Hebrew",
+          "Arabic",
+          "Russian",
+          "German",
+          "French",
+          "Spanish",
+          "Italian",
+          "Portuguese",
+          "Dutch",
+          "Polish",
+          "Turkish",
+          "Ukrainian"
+        ]
+      },
+      "default": [
+        "eng"
+      ]
+    },
+    "mode": {
+      "title": "Extraction mode",
+      "type": "string",
+      "editor": "select",
+      "enum": [
+        "auto",
+        "ocr",
+        "text"
+      ],
+      "enumTitles": [
+        "Auto: text layer, OCR only scanned pages (cheapest)",
+        "Always OCR every page",
+        "Text layer only, never OCR"
+      ],
+      "description": "Auto is best for mixed documents.",
+      "default": "auto"
+    },
+    "outputFormat": {
+      "title": "Output format",
+      "type": "string",
+      "editor": "select",
+      "enum": [
+        "markdown",
+        "text"
+      ],
+      "enumTitles": [
+        "Markdown (with tables)",
+        "Plain text"
+      ],
+      "default": "markdown",
+      "description": "Return extracted content as plain text or as Markdown (Markdown keeps tables)."
+    },
+    "extractTables": {
+      "title": "Extract tables",
+      "type": "boolean",
+      "description": "Detect tables in digital PDFs and return them as rows (and Markdown tables).",
+      "default": true
+    },
+    "includePageDetails": {
+      "title": "Include per-page details",
+      "type": "boolean",
+      "description": "Adds a 'pages' array with text, method, tables and OCR confidence per page.",
+      "default": true
+    },
+    "maxPagesPerFile": {
+      "title": "Max pages per file",
+      "type": "integer",
+      "default": 200,
+      "minimum": 1,
+      "maximum": 2000,
+      "sectionCaption": "Advanced",
+      "description": "Stop after this many pages of each file. Useful to cap cost on very long documents."
+    },
+    "ocrDpi": {
+      "title": "OCR resolution (DPI)",
+      "type": "integer",
+      "description": "Higher = more accurate for small print but slower.",
+      "default": 300,
+      "minimum": 100,
+      "maximum": 400
+    }
+  },
+  "required": [
+    "fileUrls"
+  ]
+}
