@@ -1,0 +1,12 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "PDF & image OCR output",
+  "properties": {
+    "results": {
+      "type": "string",
+      "template": "{{links.apiDefaultDatasetUrl}}/items",
+      "title": "Extracted text",
+      "description": "One item per file: page counts, OCR vs text-layer pages, tables and the extracted Markdown/plain text."
+    }
+  }
+}
