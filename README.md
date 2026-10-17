@@ -4,7 +4,6 @@
 
 > **Run it in the cloud with no setup:** [PDF & Image OCR to Text/Markdown (Hebrew, Arabic) on the Apify Store](https://apify.com/manageable_gully/pdf-ocr-extractor).  
 > Pay only per result, export to JSON/CSV/Excel, schedule runs and call it from the API.
-<!-- Note: the Apify Store page goes live once the Actor is published. -->
 <!-- AFFILIATE_LINK_PLACEHOLDER: replace the Apify links above with the affiliate link when available -->
 
 Turn PDFs and images into clean **Markdown or plain text**, with tables. Digital PDF pages are read straight from the text layer (fast, exact, cheap). Only **scanned pages go through OCR** (Tesseract 5). It handles **right-to-left Hebrew and Arabic** properly, including PDFs whose Hebrew text layer is stored backwards.
